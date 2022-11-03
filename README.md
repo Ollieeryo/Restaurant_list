@@ -16,7 +16,7 @@
 ```
 git clone https://github.com/Ollieeryo/Restaurant_list.git
 ```
-2. 開啟終端機 (Terminal，進入此專案資料夾
+2. 開啟終端機 (Terminal)，進入此專案資料夾
 ```
 cd restaurant_list
 ```
