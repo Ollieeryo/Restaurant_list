@@ -17,17 +17,17 @@ app.use(express.static('public'))
 
 // route setting
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results})
+  res.render('index', { restaurants: restaurantList.results })
 })
 
 // show page setting and use params, and toLowerCase
 app.get('/restaurant/:restaurant_id', (req, res) => {
   // get same id restaurant data
   // change restaurant.id to string, same with req.params.restaurant.id
-  const restaurant = restaurantList.results.find(restaurant => 
+  const restaurant = restaurantList.results.find(restaurant =>
     restaurant.id.toString() === req.params.restaurant_id
   )
-  res.render('show', { restaurant: restaurant })
+  res.render('show', { restaurant })
 })
 
 // queryString setting
@@ -38,10 +38,8 @@ app.get('/search', (req, res) => {
   const restaurants = restaurantList.results.filter(restaurant => {
     return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
   })
-
-  res.render('index', { restaurants: restaurants, keyword: keyword })
+  res.render('index', { restaurants, keyword })
 })
-
 
 // start and listen
 app.listen(port, () => {
